@@ -1,0 +1,25 @@
+ testTc();
+
+
+function testTc()
+{
+_navigateTo("http://sahitest.com/demo/training/login.htm");
+//var $i;
+  _setValue(_textbox("user"), "test");
+_setValue(_password("password"), "secret");
+_click(_submit("Login"));
+
+for(var $i=0;$i<10;$i++)
+{
+      
+    var $a="TC_"+$i;
+    var $t = _testcase($a, "Login");
+  		$t.start();
+  _log("TC_"+$i);
+    _setValue(_textbox("q"), "2");
+    _setValue(_textbox("q[1]"), "1");
+    _setValue(_textbox("q[2]"), "1");
+    _click(_button("Add"));
+    $t.end();
+  }
+}
